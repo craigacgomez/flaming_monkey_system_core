@@ -59,6 +59,7 @@ TOOLS := \
 	du \
 	md5 \
 	clear \
+	restart \
 	getenforce \
 	setenforce \
 	chcon \

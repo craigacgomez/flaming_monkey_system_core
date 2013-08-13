@@ -272,6 +272,9 @@ on post-fs-data
     # Set indication (checked by vold) that we have finished this action
     #setprop vold.post_fs_data_done 1
 
+    # Run sysinit
+    start sysinit
+
 on boot
     # interactive governor
     chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
@@ -508,6 +511,12 @@ service adbd /sbin/adbd
 # adbd on at boot in emulator
 on property:ro.kernel.qemu=1
     start adbd
+
+# sysinit (/system/etc/init.d)
+service sysinit /system/bin/sysinit
+    user root
+    oneshot
+    disabled
 
 service servicemanager /system/bin/servicemanager
     class core

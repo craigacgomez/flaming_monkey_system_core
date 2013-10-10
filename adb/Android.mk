@@ -126,6 +126,8 @@ ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 LOCAL_CFLAGS += -DALLOW_ADBD_ROOT=1
 endif
 
+LOCAL_C_INCLUDES += external/openssl/include
+
 LOCAL_MODULE := adbd
 
 LOCAL_FORCE_STATIC_EXECUTABLE := true

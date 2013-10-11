@@ -551,6 +551,15 @@ service sysinit /system/bin/sysinit
     oneshot
     disabled
 
+# Block stock OTA activities
+service otablock /system/bin/otablock
+    user root
+    oneshot
+    disabled
+
+on property:dev.bootcomplete=1
+    start otablock
+
 service servicemanager /system/bin/servicemanager
     class core
     user system
